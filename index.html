@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+    integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CSS for the image slider container */
+    .slider-container {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* CSS for the individual images */
+    .slider-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .slider-container .search {
+      position: absolute;
+      bottom: 5%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider-container">
+    <lottie-player id="currentImage" src="https://lottie.host/fc14e357-058e-4727-a905-0e13fde1c83e/GH0nQQlHKE.json"
+      background="#00041c" class="slider-image" speed="1" style="width: 100%; height: 100%" loop autoplay direction="1"
+      mode="normal"></lottie-player>
+    <img id="nextImage" class="slider-image" src="back.jpg" alt="Image 1">
+    <input type="text" onfocus="handleFocus()" onblur="handleBlur()" class="search form-control w-50 mx-auto"
+      placeholder="Enter text">
+  </div>
+  <script>
+    function handleFocus() {
+      // Hide the current image by sliding it up
+      document.getElementById("currentImage").style.transform = "translateY(0)";
+
+      // Show the next image by sliding it down
+      document.getElementById("nextImage").style.transform = "translateY(-100%)";
+    }
+
+    function handleBlur() {
+      // Hide the next image by sliding it up
+      document.getElementById("nextImage").style.transform = "translateY(0)";
+
+      // Show the current image by sliding it down
+      document.getElementById("currentImage").style.transform = "translateY(-100%)";
+    }
+  </script>
+  <script src="https://unpkg.com/@l
+ottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="mendable-bundle.min.js"></script>
+  <script>
+    Mendable.initialize({
+      anon_key: 'a3e3dbf3-cbe0-436f-a00d-99f0bea482bc',
+      type: "floatingButton",
+      // all the other props for the component type
+    });
+  </script>
+</body>
+
+</html>
